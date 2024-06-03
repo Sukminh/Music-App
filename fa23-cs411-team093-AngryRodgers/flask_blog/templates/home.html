@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Home Page</h1>
+      <br>
+      <form action="" method="post">
+        <label class="name" id="search-songs" for="search_songs"><b>Search Songs:</b></label>
+        <input type="text" placeholder="Songs " name="search_songs" value="{{
+            request.form.search_songs }}">
+        <input class="btn btn-default" type="submit" value="Search">
+      </form>
+      {% if songs %}
+        <p class="songs"><strong>Songs:</strong> {{ songs }}
+      {% endif %}
+      <form method="GET" enctype="multipart/form-data" action="/createplaylist">
+        <button type="submit" class="btn btn-primary">Create Playlist</button>
+      </form>
+      <form method="GET" enctype="multipart/form-data" action="/deleteplaylist">
+        <button type="submit" class="btn btn-primary">Delete Playlist</button>
+      </form>
+      <form method="GET" enctype="multipart/form-data" action="/showmyplaylist">
+        <button type="submit" class="btn btn-primary">Show My Playlists</button>
+      </form>
+      <form method="GET" enctype="multipart/form-data" action="/showtopartists">
+        <button type="submit" class="btn btn-primary">Show TOP 15 Artists</button>
+      </form>
+      <form method="GET" enctype="multipart/form-data" action="/showstatus">
+        <button type="submit" class="btn btn-primary">Show Status</button>
+      </form>
+    </div>
+  </body>
+</html>
